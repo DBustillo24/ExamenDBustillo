@@ -9,11 +9,30 @@
     <script src=" ~/Scripts/angular.min.js"></script>
     <script src=" ~/app/app.js"></script>
 
+
 </head>
+
+
 <body>
+   
+    <style clase="text/css"> 
+        .Header1, .Header2
+        {
+            font-family: 'Baskerville Old Face';
+            font-size: 18px;
+            color: #ffffff;
+        }
+    </style>
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+
+                <ion-item nav-clear menu-close href="" side="left">
+                    <img src="Images_/hn2.png" width="100" height="50" />
+                </ion-item>
+             
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -21,11 +40,12 @@
                 </button>
                 
             </div>
+            
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Complejo", "Index", "Complejo")</li>
-                    <li>@Html.ActionLink("Canchas", "Index", "Canchas")</li>
+                    <li class="Header1">@Html.ActionLink("Complejo Deportivo", "Index", "Complejo")</li>
+                    <li class="Header2">@Html.ActionLink("Canchas", "Index", "Canchas")</li>
                 
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -36,7 +56,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Created by David Bustillo</p>
         </footer>
     </div>
 

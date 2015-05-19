@@ -28,7 +28,7 @@
 
 </head>
 
-
+<br />
 <div class="container" ng-app="appCanchas" ng-controller="CanchasCtrl">
     <div class="row">
         <div class="col-md-12">
@@ -44,6 +44,7 @@
                     <th class="Center_h" width="100">Largo Mts.</th>
                     <th class="Center_h" width="100">Ancho Mts.</th>
                     <th class="Center_h" width="200">ID Complejo</th>
+                    <th class="Center_h" ></th>
                 </tr>
 
                 <tr ng-repeat="item in ListaCanchas" class="ListaDatos">
@@ -69,7 +70,7 @@
                     <td class="success"><input type="number" class="form-control" placeholder="Largo" maxlength="2" name="Largo" ng-model="Registro.Largo" /></td>
                     <td class="success"><input type="number" class="form-control" placeholder="Ancho" maxlength="2" name="Ancho" ng-model="Registro.Ancho" /></td>
                     @*<td class="success"><input type="text" class="form-control" placeholder="Complejo" name="ID_Complejo" ng-model="Registro.ID_Complejo" /></td>*@
-                    <td class="success"> <select class="form-control" ng-model="Registro.ID_Complejo" ng-options="i.ID as i.Nombre for i in ListaComplejos">Seleccione Complejo</select></td>
+                    <td class="success"> <select class="form-control" placeholder="-- Please Select --" ng-model="Registro.ID_Complejo" ng-options="i.ID as i.Nombre for i in ListaComplejos"><option value="" disabled selected>--- Please Select ---</option></select></td>
 
                     <td class="Center_btn success">
                         <button type="button" ng-click="Guardar(item)" class="btn btn-success btn-md">Aceptar</button>
