@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModeloExamen" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Canchas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Num_Espectadores" Type="Int32" Nullable="false" />
+    <Property Name="Largo" Type="Int32" Nullable="false" />
+    <Property Name="Ancho" Type="Int32" Nullable="false" />
+    <Property Name="ID_Complejo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Complejo" Relationship="ModeloExamen.FK_Canchas_Complejo" FromRole="Canchas" ToRole="Complejo" />
+  </EntityType>
+  <EntityType Name="Complejo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Canchas" Relationship="ModeloExamen.FK_Canchas_Complejo" FromRole="Complejo" ToRole="Canchas" />
+  </EntityType>
+  <EntityContainer Name="db599556223afa4e37913da49d0024f159Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Canchas" EntityType="Self.Canchas" />
+    <EntitySet Name="Complejo" EntityType="Self.Complejo" />
+    <AssociationSet Name="FK_Canchas_Complejo" Association="ModeloExamen.FK_Canchas_Complejo">
+      <End Role="Complejo" EntitySet="Complejo" />
+      <End Role="Canchas" EntitySet="Canchas" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Canchas_Complejo">
+    <End Type="ModeloExamen.Complejo" Role="Complejo" Multiplicity="1" />
+    <End Type="ModeloExamen.Canchas" Role="Canchas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Complejo">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Canchas">
+        <PropertyRef Name="ID_Complejo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<head>
+    <script src="~/App/Controller/CanchasCtrl.js"></script>
+
+    <style type="Text/CSS">
+        .Center_h, .Center_btn {
+            font-family: 'Times New Roman';
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .ListaDatos {
+            font-family: 'Times New Roman';
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            font-family: 'Times New Roman';
+        }
+    </style>
+
+
+</head>
+
+
+<div class="container" ng-app="appCanchas" ng-controller="CanchasCtrl">
+    <div class="row">
+        <div class="col-md-12">
+
+
+
+
+            <table class="table table-striped table-responsive">
+                <tr>
+                    <th class="Center_h">ID</th>
+                    <th class="Center_h">Nombre</th>
+                    <th class="Center_h">No. Espectadores</th>
+                    <th class="Center_h">Largo</th>
+                    <th class="Center_h">Ancho</th>
+                    <th class="Center_h">ID Complejo</th>
+                </tr>
+
+                <tr ng-repeat="item in ListaCanchas" class="ListaDatos">
+
+                    <td class="Center_h" width="70"> {{item.ID}}  </td>
+                    <td class="Center_h"> {{item.Nombre}} </td>
+                    <td class="Center_h"> {{item.Num_Espectadores}} </td>
+                    <td class="Center_h"> {{item.Largo}} </td>
+                    <td class="Center_h" width="30"> {{item.Ancho}} </td>
+                    <td class="Center_h" width="30"> {{item.ID_Complejo}}</td>
+
+                    <td class="Center_btn" width="170px">
+                        <button type="button" ng-click="EditarRegistro(item)" class="btn btn-success">Editar</button>
+                        <button type="button" ng-click="EliminarRegistro(item)" class="btn btn-danger">Borrar</button>
+                    </td>
+                </tr>
+
+                <tr ng-if="MostrarControles">
+
+                    <td class="success"><input type="text" disabled="disabled" class="form-control" placeholder="ID" ng-model="Registro.ID" /> </td>
+                    <td class="success"><input type="text" class="form-control" placeholder="Nombre" maxlength="15" name="txtNombre" ng-model="Registro.Nombre" /></td>
+                    <td class="success"><input type="number" class="form-control" placeholder="No. Espectadores" maxlength="3" name="Espectadores" ng-model="Registro.Num_Espectadores" /></td>
+                    <td class="success"><input type="number" class="form-control" placeholder="Largo" maxlength="2" name="Largo" ng-model="Registro.Largo" /></td>
+                    <td class="success"><input type="number" class="form-control" placeholder="Ancho" maxlength="2" name="Ancho" ng-model="Registro.Ancho" /></td>
+                    <td class="success"><input type="text" class="form-control" placeholder="Complejo" name="ID_Complejo" ng-model="Registro.ID_Complejo" /></td>
+
+                    <td class="Center_btn success">
+                        <button type="button" ng-click="Guardar(item)" class="btn btn-success btn-md">Aceptar</button>
+                        <button type="button" ng-click="Limpiar(item)" class="btn btn-danger btn-md">Cancelar</button>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" ng-click="NuevoRegistro()" class="btn btn-primary btn-lg">Agregar</button>
+
+        </div>
+    </div>
+</div>
+
+
