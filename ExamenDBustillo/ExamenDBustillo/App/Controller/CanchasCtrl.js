@@ -1,6 +1,7 @@
 ﻿angular.module('CanchasController', []).controller('CanchasCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.ListaCanchas = {};
+    $scope.ListaComplejos = {};
     $scope.Registro = {};
     $scope.Accion = 'nuevo';
     $scope.MostrarControles = false;
@@ -26,6 +27,11 @@
 
     $http.get('/Canchas/GetAll').success(function (data) {
         $scope.ListaCanchas = data;
+    });
+
+
+    $http.get('/Complejo/GetAll').success(function (data) {
+        $scope.ListaComplejos = data;
     });
 
 
@@ -58,9 +64,6 @@
         $scope.ListaCanchas.splice(indice, 1);
 
     }
-
-
-
 
 }
 

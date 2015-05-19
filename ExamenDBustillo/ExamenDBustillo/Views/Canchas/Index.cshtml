@@ -68,7 +68,8 @@
                     <td class="success"><input type="number" class="form-control" placeholder="No. Espectadores" maxlength="3" name="Espectadores" ng-model="Registro.Num_Espectadores" /></td>
                     <td class="success"><input type="number" class="form-control" placeholder="Largo" maxlength="2" name="Largo" ng-model="Registro.Largo" /></td>
                     <td class="success"><input type="number" class="form-control" placeholder="Ancho" maxlength="2" name="Ancho" ng-model="Registro.Ancho" /></td>
-                    <td class="success"><input type="text" class="form-control" placeholder="Complejo" name="ID_Complejo" ng-model="Registro.ID_Complejo" /></td>
+                    @*<td class="success"><input type="text" class="form-control" placeholder="Complejo" name="ID_Complejo" ng-model="Registro.ID_Complejo" /></td>*@
+                    <td class="success"> <select class="form-control" ng-model="Registro.ID_Complejo" ng-options="i.ID as i.Nombre for i in ListaComplejos">Seleccione Complejo</select></td>
 
                     <td class="Center_btn success">
                         <button type="button" ng-click="Guardar(item)" class="btn btn-success btn-md">Aceptar</button>
